@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Calculation Service
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <app-input-form (arrayGenerated)="onArrayGenerated($event)"></app-input-form>
+
+  <ion-card *ngIf="inputArray.length">
+    <ion-card-header>
+      <ion-card-title>Input Array</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let row of inputArray">
+        {{ row }}
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="result && result.length">
+    <ion-card-header>
+      <ion-card-title>Result</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let item of result; let i = index">
+          Column {{ i + 1 }} Sum: {{ item }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
